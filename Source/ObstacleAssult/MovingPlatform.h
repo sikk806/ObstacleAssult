@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "MovingPlatform.generated.h"
 
+float checkRot(float rot);
 UCLASS()
 class OBSTACLEASSULT_API AMovingPlatform : public AActor
 {
@@ -27,6 +28,8 @@ public:
 
 	UPROPERTY(EditAnywhere);
 	int32 i = 1;
+	UPROPERTY(EditAnywhere);
+	float rot = 10;
 	UPROPERTY(EditAnywhere);
 	bool a = false;
 };

@@ -29,15 +29,27 @@ void AMovingPlatform::Tick(float DeltaTime)
 	else if(i <= -200) {
 		a = false;
 	}
+
 	if(!a) {
 		i++;
 	}
 	else{
 		i--;
 	}
+
+	rot = checkRot(rot);
+
+	rot += 0.5;
 	SetActorLocation(FVector(movingVector.X, movingVector.Y + i, movingVector.Z));
-	SetActorRotation(FRotator(-i*1.8, i*1.8, -i*1.8));
+	SetActorRotation(FRotator(rot));
 	
 
 }
 
+float checkRot(float rot) {
+	if(rot > 360) {
+		rot = -rot;
+	}
+
+	return rot;
+}
