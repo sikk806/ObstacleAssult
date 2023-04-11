@@ -23,10 +23,10 @@ void AMovingPlatform::BeginPlay()
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if(i >= 100) {
+	if(i >= 200) {
 		a = true;
 	}
-	else if(i <= -100) {
+	else if(i <= -200) {
 		a = false;
 	}
 	if(!a) {
