@@ -23,6 +23,9 @@ void AMovingPlatform::BeginPlay()
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	UE_LOG(LogTemp, Log, TEXT("%f"), DeltaTime);
+
 	if(i >= 200) {
 		a = true;
 	}
