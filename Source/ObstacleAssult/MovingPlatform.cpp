@@ -16,6 +16,8 @@ void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 	SetActorLocation(movingVector);
+
+	StartLocation = GetActorLocation();
 	
 }
 
@@ -26,18 +28,18 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Log, TEXT("%f"), DeltaTime);
 
-	if(i >= 200) {
+	if(i >= 200.0f) {
 		a = true;
 	}
-	else if(i <= -200) {
+	else if(i <= -200.0f) {
 		a = false;
 	}
 
 	if(!a) {
-		i++;
+		i += 1.0f;
 	}
 	else{
-		i--;
+		i -= 1.0f;
 	}
 
 	rot = checkRot(rot);
@@ -46,6 +48,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 	SetActorLocation(FVector(movingVector.X, movingVector.Y + i, movingVector.Z));
 	SetActorRotation(FRotator(rot));
 	
+	DistanceMoved = FVector::Dist(StartLocation, GetActorLocation());
 
 }
 

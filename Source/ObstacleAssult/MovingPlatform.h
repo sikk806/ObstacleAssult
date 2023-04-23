@@ -21,18 +21,21 @@ protected:
 	virtual void BeginPlay() override;
 	UPROPERTY(EditAnywhere); 
 	FVector movingVector = FVector(-13580.0, -2370.0, 4080.0);
+	UPROPERTY(VisibleAnywhere)
+	FVector StartLocation = GetActorLocation();
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	
 
 	UPROPERTY(EditAnywhere);
-	int32 i = 1;
+	float i = 1;
 	UPROPERTY(EditAnywhere);
 	float rot = 10;
 	UPROPERTY(EditAnywhere);
 	bool a = false;
 	UPROPERTY(EditAnywhere, Category = "Moving Platform");
 	FVector PlatformVelocity = FVector(100, 0, 0);
+	UPROPERTY(VisibleAnywhere);
+	float DistanceMoved = -1;
 };
